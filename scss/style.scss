@@ -246,7 +246,10 @@ footer{
 		padding: 8px 16px;
 		margin: 0;
 	}
+}
 
+.btn-ghost{
+	@include ghost_btn($color_bg:$gray-500, $color_text:$black);
 }
 
 .btn-primary{
@@ -458,33 +461,66 @@ p.text{
 			text-decoration: underline;
 		}
 	}
+}
 
-	.profile_block{
-		margin-top: 16px;
+.profile_block{
+	.name{
+		@include font($f_size:20px);
+		font-weight: 600;
+		margin-bottom: 12px;
+	}
 
-		.profile{
-			margin-bottom: 12px;
+	margin-top: 16px;
 
-			img{
-				margin-right: 12px;
+	.profile{
+		margin-bottom: 12px;
+
+		img{
+			margin-right: 12px;
+		}
+		.text_data{
+			.name{
+				@include font($f_size:16px);
+				margin: 0;
+				margin-bottom: 4px;
+				color: $black;
 			}
-			.text_data{
-				.name{
-					@include font($f_size:16px);
-					margin: 0;
-					margin-bottom: 4px;
-					color: $black;
-				}
-				.text{
-					@include font($f_size:12px);
-					margin: 0;
-					color: $secondary;
-				}
-			}
-			&:last-child{
-				margin-bottom: 0;
+			.text{
+				@include font($f_size:12px);
+				margin: 0;
+				color: $secondary;
 			}
 		}
+		&:last-child{
+			margin-bottom: 0;
+		}
+	}
+}
+
+.add_friend_block{
+	h1{
+		margin: 0;
+	}
+
+	p{
+		margin: 0;
+	}
+
+	.block_title{
+		margin-top: 48px;
+		
+		@include font($f_size:24px);
+		font-weight: bold;
+		color: $black;
+
+	}
+
+	.block_desc{
+		margin-top: 16px;
+		margin-bottom: 24px;
+
+		@include font($f_size:16px);
+		color: $dark;
 	}
 }
 
