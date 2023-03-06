@@ -172,6 +172,7 @@ footer{
 
 		a{
 			text-decoration: none;
+			color: $secondary;
 		}
 
 		a:visited{
@@ -256,6 +257,15 @@ footer{
 		padding: 8px 16px;
 		margin: 0;
 	}
+
+}
+
+button.btn{
+	border: none;
+	background: none;
+	margin: 0;
+	padding: 0;
+	cursor: pointer;
 }
 
 .btn-ghost{
@@ -264,6 +274,24 @@ footer{
 
 .btn-primary{
 	@include colored_btn;
+}
+
+.btn-outline-primary{
+	p{
+		color: $primary;
+		border: $primary solid 1px;
+		padding: calc(8px - 1px) calc(16px - 1px);
+		transition: $naw_transition;
+	}
+
+	&:hover p{
+		background: $primary;
+		color: $white;
+	}
+
+	&:active p{
+		box-shadow: 0px 0px 0px 4px rgba($primary, .4);
+	}
 }
 
 .btn-black{
@@ -325,6 +353,14 @@ p.text{
 			margin-top: 16px;
 
 			.like{
+				button{
+					border: none;
+					background: none;
+					margin: 0;
+					padding: 0;
+					cursor: pointer;
+				}
+
 				a{
 					text-decoration: none;
 				}
@@ -351,6 +387,13 @@ p.text{
 					svg{
 						fill: $secondary;
 						transition: $naw_transition;
+					}
+				}
+
+				// если пост был лайкнутый 
+				.is_like_img{
+					svg{
+						fill: $danger;
 					}
 				}
 				p{
@@ -535,10 +578,16 @@ p.text{
 }
 
 
+
 .sticky{
 	position: sticky;
 	top: calc(56px + 24px);
 }
+
+.margin-l{
+	margin-left: 16px;
+}
+
 
 .anchor{
 	a{
