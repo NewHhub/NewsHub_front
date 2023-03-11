@@ -255,6 +255,7 @@ footer{
 .btn{
 	@include font;
 	text-decoration: none;
+	cursor: pointer;
 
 	p{
 		border-radius: 16px;
@@ -719,89 +720,112 @@ p.text{
 		margin-bottom: 16px;
 
 	}
-}
 
-.combo-box {
-	position: relative;
-}
-  
-  .chips-container {
-	display: flex;
-	flex-wrap: wrap;
-	align-items: center;
-	gap: 4px;
-
-	background: $white;
-	margin-bottom: 16px;
-  }
-  
-  .chip {
-	background-color: $sub_bg;
-	color: $primary;
-	border-radius: 4px;
-	padding: 4px 10px;
-	margin-right: 8px;
-	cursor: pointer;
-	font-size: 14px;
-  }
-  
-  .new-chip-input {
-	flex: 1;
-	border: none;
-	outline: none;
-	padding: 4px;
-  }
-  
-  .selected-chips {
-	position: absolute;
-	top: 100%;
-	left: 0;
-	width: 100%;
-	z-index: 10;
-	opacity: 0;
-	pointer-events: none;
-  }
-  
-.preview{
-	position: relative;
-	display: flex;
-
-	img{
-		width: 100%;
-		border-radius: 4px;
-	}
+	.combo-box {
+		position: relative;
 	
-	.reset{
-		background: $danger;
-		transition: $naw_transition;
-
-		justify-content: center;
+	  
+	  .chips-container {
+		display: flex;
+		flex-wrap: wrap;
 		align-items: center;
-
+		gap: 4px;
+	
+		background: $white;
+		margin-bottom: 16px;
+	
+		.chip {
+			background-color: $sub_bg;
+			color: $primary;
+			border-radius: 4px;
+			padding: 4px 10px;
+			margin-right: 8px;
+			cursor: pointer;
+			font-size: 14px;
+		  }
+	
+		  .new-chip-input {
+			flex: 1;
+			border: none;
+			outline: none;
+			padding: 4px;
+		  }
+	  }
+	  .selected-chips {
 		position: absolute;
-		top: 16px;
-		left: 16px;
-		margin: 0;
-		padding: 8px;
+		top: 100%;
+		left: 0;
+		width: 100%;
+		z-index: 10;
+		opacity: 0;
+		pointer-events: none;
+	  }
+	
+	}
 
-		border-radius: 100px;
+	.preview{
+		position: relative;
+		display: flex;
+	
+		img{
+			width: 100%;
+			border-radius: 4px;
+		}
+		
+		.reset{
+			background: $danger;
+			transition: $naw_transition;
+	
+			justify-content: center;
+			align-items: center;
+	
+			position: absolute;
+			top: 16px;
+			left: 16px;
+			margin: 0;
+			padding: 8px;
+	
+			border-radius: 100px;
+	
+			display: none;
+	
+			&:hover {
+				background: lighten($danger, 10%);
+			}
+		
+			&:active {
+				box-shadow: 0px 0px 0px 4px rgba($danger, .4);
+			}
+	
+			svg{
+				margin: 0;
+				width: 24px;
+				height: 24px;
+				fill: $white;
+				
+			}
+		}
+	}
 
-		display: none;
-
-		&:hover {
-			background: lighten($danger, 10%);
+	.choose_file{
+		.file_input{
+			width: 0.1px;
+			height: 0.1px;
+			opacity: 0;
+			overflow: hidden;
+			position: absolute;
+			z-index: -1;
+	
+			&:focus + .file_button{	
+				outline: 1px solid rgba($primary, .4);
+				outline: -webkit-focus-ring-color auto 5px;
+			}	
 		}
 	
-		&:active {
-			box-shadow: 0px 0px 0px 4px rgba($danger, .4);
-		}
-
-		svg{
-			margin: 0;
-			width: 24px;
-			height: 24px;
-			fill: $white;
-			
+		.file_button{
+			border-radius: 16px ;
+			display: inline-block;
+			margin-bottom: 16px;
 		}
 	}
 }

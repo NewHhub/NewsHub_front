@@ -130,7 +130,7 @@
                             <div class="input chips-container">
                                 <input type="text" class="new-chip-input" placeholder="Add new topik">
                             </div>
-                            <select multiple class="selected-chips"></select>
+                            <select multiple class="selected-chips" name="topik"></select>
                         </div>
                         <input type="text" name='title' placeholder="Title" class="input title" id="post_create_title">
                         <div class="preview">
@@ -141,8 +141,11 @@
                                 </svg>
                             </div>
                         </div>
+                        <div class="choose_file">
+                            <input type="file" name='poster' class="file_input" accept=".png, .jpg, .jpeg" value="Choose" id="poster">
+                            <label for="poster" class="file_button btn btn-primary" id="choose_file_button"><p>Choose a file</p></label>
+                        </div>
                         
-                        <input type="file" name='poster' class="file" accept=".png, .jpg, .jpeg" value="Choose" id="poster">
                         <textarea id="textComment" name="textComment" rows="9" class="input desc" placeholder="Text ( optional )"></textarea>
                         <div class="d-flex justify-content-end form_control">
                             <button type="submit" class="btn btn-primary"><p>Post</p></button>

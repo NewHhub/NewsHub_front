@@ -82,9 +82,10 @@ newChipInput.addEventListener('keydown', (event) => {
 });
 
 // загружаем первый элемент в див с превьюшкой 
-const fileInput = document.querySelector('input[type="file"]#poster');
-const previewImage = document.querySelector('#preview');
+const fileInput = document.querySelector('input[type="file"]#poster')
+const previewImage = document.querySelector('#preview')
 const reset_preview_btn = document.querySelector('#reset_preview')
+const choose_file_button = document.querySelector('#choose_file_button')
 
 fileInput.addEventListener('change', function() {
   const file = fileInput.files[0];
@@ -94,6 +95,7 @@ fileInput.addEventListener('change', function() {
     previewImage.src = reader.result;
     previewImage.style.marginBottom = '16px' // делаем отступ от фото к форме выбора фото
     reset_preview_btn.style.display = 'flex'
+    choose_file_button.style.display = 'none' // убираем кнопку загрузки фото
   });
 
   if (file) {
@@ -107,6 +109,7 @@ function reset_preview(){
     reset_preview_btn.style.display = 'none'
     previewImage.src = ''
     previewImage.style.marginBottom = '0'
+    choose_file_button.style.display = 'inline-block'
 }
 
 // делаем увеличени текстарии
