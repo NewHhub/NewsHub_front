@@ -121,3 +121,17 @@ textarea.addEventListener('input', function(){
         textarea.style.cssText = 'height:' + textarea.scrollHeight + 'px';
       },0);
 });
+
+
+function reply(comment_id, username){
+  document.getElementById('textComment').value = '@' + username + ', '
+  document.getElementById('post_for_like').value = comment_id
+
+  // размер шапки + 32px отступа от контрола 
+  let yOffset = 88
+  let element = document.getElementById('reply')
+  let y = element.getBoundingClientRect().top + window.pageYOffset - yOffset
+
+  window.scrollTo({top: y, behavior: 'smooth'})
+}
+
