@@ -61,8 +61,8 @@ newChipInput.addEventListener('keydown', (event) => {
   if (event.key === 'Enter' && newChipInput.value) {
     const chip = document.createElement('div');
     chip.classList.add('chip');
-    chip.dataset.value = newChipInput.value;
-    chip.textContent = newChipInput.value;
+    chip.dataset.value = newChipInput.value.replace(/\s/g, '_'); // заменяем пробелы на _
+    chip.textContent = newChipInput.value.replace(/\s/g, '_'); // заменяем пробелы на _
     chip.addEventListener('click', () => {
       chip.remove();
       const option = selectedChips.querySelector(`option[value="${chip.dataset.value}"]`);
@@ -73,7 +73,7 @@ newChipInput.addEventListener('keydown', (event) => {
     chipsContainer.insertBefore(chip, newChipInput);
     
     const option = document.createElement('option');
-    option.value = newChipInput.value;
+    option.value = newChipInput.value.replace(/\s/g, '_'); // заменяем пробелы на _
     option.selected = true;
     selectedChips.appendChild(option);
     
@@ -135,3 +135,27 @@ function reply(comment_id, username){
   window.scrollTo({top: y, behavior: 'smooth'})
 }
 
+function changePage_profile(page, data){
+  let btns_list = ['page_feeds', 'page_actions']
+  let data_list = ['data_feeds', 'data_actions']
+  let curent_page = document.getElementById(page)
+
+  if (!curent_page.classList.contains("active")){
+      curent_page.classList.toggle("active");
+  }
+
+  // remove active class from another btns
+  for(const page_element of btns_list){
+      if(page_element != page){
+          document.getElementById(page_element).classList.remove("active")
+      }
+  }
+
+  // hide another blocks of contant
+  document.getElementById(data).style.display = 'block';
+  for(const data_element of data_list){
+      if(data_element != data){
+          document.getElementById(data_element).style.display = 'none';
+      }
+  }
+}
